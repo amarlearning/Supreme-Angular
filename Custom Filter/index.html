@@ -8,7 +8,7 @@
 <body ng-app="Custom">
 	<h2>Replace Custom Filters</h2>
 	<div ng-controller="CustomLearning">
-		<p>orignal Message : {{ name }}</p>
+		<p>orignal Message : {{ name | custom}}</p>
 		<p>Filtered Message : {{ somefunction(); }}</p>
 	</div>
 </body>

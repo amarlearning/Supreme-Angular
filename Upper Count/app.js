@@ -1,4 +1,5 @@
 (function () {
+	'use strict';
 
 	angular.module('UpperCaseModule', [])
 	.controller('UpperCaseController', ['$scope', '$filter', function($scope, $filter){

@@ -1,4 +1,7 @@
 (function () {
+
+	'use strict';
+
 	angular.module('Custom', [])
 	.controller('CustomLearning', CustomController)
 	.filter("custom", CustomFactoryFilter);
@@ -7,7 +10,7 @@
 
 	function CustomController($scope, customFilter) {
 		$scope.name = "Lorem ipsum dolor sit amet.";
-		msg = "Lorem ipsum dolor sit amet.";
+		var msg = "Lorem ipsum dolor sit amet.";
 
 		$scope.somefunction = function () {
 			msg = customFilter(msg);
