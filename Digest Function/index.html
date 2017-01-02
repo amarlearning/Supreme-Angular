@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="digestFucntion">
+<head>
+	<meta charset="utf-8">
+	<title>Digest Trigering</title>
+	<script src="../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>Manually trigger Digest cycle!</h3>
+	<div ng-controller="digestController">
+		<button ng-click="onceCout()">onceCount</button><br><br>
+		Count Value: {{ countvalue }}
+	</div>
+</body>
+</html>
