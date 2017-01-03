@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="FilterApp">
+<head>
+	<meta charset="utf-8">
+	<title>Filter ng-repeat</title>
+	<script src="../../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>Filter ng-repeat</h3>
+	<div ng-controller="FilterController">
+		Enter Search Keyword : <input type="text" ng-model="search">
+		<ul>
+			<li ng-repeat="item in shopingListOne | filter : search">{{ item }}</li>
+		</ul>
+	</div>
+</body>
+</html>

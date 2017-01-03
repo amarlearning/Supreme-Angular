@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="shopingListApp">
+<head>
+	<meta charset="utf-8">
+	<title>Repeat Directive</title>
+	<script src="../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>ng-repeat Directive</h3>
+	<div ng-controller="shopingListController">
+		
+		<!-- Input option to edit the quantity value of first Item.
+		 <input type="text" ng-model="shopingListTwo[0].quantity"><br> -->
+
+
+		<!-- Shopping List: #1
+		<ul>
+			<li ng-repeat="item in shopingListOne">{{ item }}</li>
+		</ul> -->
+
+		<!-- Shopping List: #2
+		<ul>
+			<li ng-repeat="item in shopingListTwo">Buy {{ item.quantity }} of {{ item.name }} daily.</li>
+		</ul> -->
+
+	<!-- Shopping List: #3 -->
+		<span ng-repeat="item in shopingListTwo">{{ $index + 1 + ". " }}Buy {{ item.quantity }} of {{ item.name }} daily.<br></span>
+
+		<br>
+
+		<input type="text" ng-model="addItemName" placeholder="Item Name">
+		<input type="text" ng-model="addItemQuantity" placeholder="Item Quantity">
+		<button ng-click="addtoList()">Add to List</button>
+	</div>
+</body>
+</html>
