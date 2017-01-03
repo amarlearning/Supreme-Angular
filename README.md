@@ -1,1 +1,1 @@
-# Supreme-Angular
+# Single Page Web applications with Angular
