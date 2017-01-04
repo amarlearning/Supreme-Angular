@@ -16,7 +16,6 @@
 
 		$scope.evaluateItems = function () {
 			var listLength = emptyStringsFilter(splitFilter($scope.items));
-
 			if(listLength == 0) {
 				$scope.message = "<div class=\"alert alert-warning\" role=\"alert\"><strong>Please enter data first.</strong></div>";
 			}
@@ -42,7 +41,8 @@
 		return function (list) {
 			var length = list.length;
 			for (var i = 0; i < list.length; i++) {
-				if(list[i] === "" || list[i] === " ")
+				list[i] = list[i].replace(/\s+/, "");
+				if(list[i] === "")
 					length -= 1;
 			}
 			return length;
