@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="customFactory">
+<head>
+	<meta charset="utf-8">
+	<title>Custom Services with .factory()</title>
+	<script src="../../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>Custom Services with .factory()</h3>
+	
+	<!-- Shoping List #1 : unlimited number of items -->
+	<div ng-controller="shopingListOneController as listone">
+		<h4>Shoping List #1</h4>
+		<input type="text" ng-model="listone.quantity" placeholder="Item Quantity">
+		<input type="text" ng-model="listone.name" placeholder="Item Name"><br>
+		<button ng-click="listone.addToList()">Add to List</button>
+		<h4>List One Items</h4>
+		<ol>
+			<li ng-repeat="item in listone.itemList">
+				{{ item.quantity }} of {{ item.name }}
+				<button ng-click="listone.remove($index)">Remove Item</button>
+			</li>
+		</ol>
+	</div>
+
+	<!-- Shoping List #2 : limited number of items (2) -->
+	<div ng-controller="shopingListTwoController as listTwo">
+		<h4>Shoping List #2</h4>
+		<input type="text" ng-model="listTwo.quantity" placeholder="Item Quantity">
+		<input type="text" ng-model="listTwo.itemname" placeholder="Item Name"><br>
+		<button ng-click="listTwo.addToList()">Add to List</button>
+		<h4>List Two Items</h4>
+		<ol>
+			<li ng-repeat="item in listTwo.itemList">
+				{{ item.quantity }} of {{ item.name }}
+				<button ng-click="listTwo.remove($index)">Remove Item</button>
+			</li>
+		</ol>
+		<p>{{ listTwo.error }}</p>
+	</div>
+</body>
+</html>
