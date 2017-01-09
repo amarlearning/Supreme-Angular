@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="configProvider">
+<head>
+	<meta charset="utf-8">
+	<title>Custom Provider Function</title>
+	<script src="../../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>Custom Service with Provide</h3>
+	<div ng-controller="shopingListController as shoping">
+		<input type="text" ng-model="shoping.quantity" placeholder="Item Quantity">
+		<input type="text" ng-model="shoping.name" placeholder="Item Name"><br>
+		<button ng-click="shoping.addToList()">Add to List</button>
+		<ol>
+			<li ng-repeat="item in shoping.itemList">
+				{{ item.quantity }} of {{ item.name }}
+				<button ng-click="shoping.remove($index)">Remove Item</button>
+			</li>
+		</ol>
+		<p>{{ shoping.error }}</p>
+	</div>
+</body>
+</html>
