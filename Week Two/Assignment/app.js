@@ -1,4 +1,5 @@
 (function(){
+	
 	'use strict';
 
 	var list = [{
@@ -70,5 +71,5 @@
 			return new serviceMethod();
 		}
 	};
-	
+
 })();
