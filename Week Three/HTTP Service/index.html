@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="httpService">
+<head>
+	<meta charset="utf-8">
+	<title>AJAX with HTTP Service</title>
+	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+	<script src="../../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>AJAX with HTTP Service</h3>
+	<div ng-controller="httpServiceController as http">
+		<ol>
+			<li ng-repeat="item in http.itemlist">
+				(<a href="" ng-click="http.getCategoryMenu(item.short_name);">
+				{{ item.short_name }}</a>) {{ item.name }}
+			</li>
+		</ol>
+	</div>
+</body>
+</html>
