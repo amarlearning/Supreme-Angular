@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="shoppingListDynamicHtml">
+<head>
+	<meta charset="utf-8">
+	<title>Dynamic HTML</title>
+	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+	<script src="../../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>Dynamic HTML</h3>
+	
+	<div ng-controller="shoppingListControllerOne as list1">
+		<input type="text" ng-model="list1.name" placeholder="Item Name">
+		<input type="text" ng-model="list1.quantity" placeholder="Item Quantity">
+		<button ng-click="list1.addItem()">Add Item</button>
+		<shoping-list my-list="list1" title="{{ list1.title }}"></shoping-list>
+	</div>
+
+	<div ng-controller="shoppingListControllerTwo as list2">
+	
+		<input type="text" ng-model="list2.name" placeholder="Item Name">
+		<input type="text" ng-model="list2.quantity" placeholder="Item Quantity">
+		<button ng-click="list2.addItem()">Add Item</button>
+		<shoping-list my-list="list2" title="Shoping List #2 [Limited to 3 Items]"></shoping-list>
+		<p>{{ list2.error }}</p>
+	</div>
+
+</body>
+</html>
