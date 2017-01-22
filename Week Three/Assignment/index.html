@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="moduleAssignment">
+<head>
+	<meta charset="utf-8">
+	<title>Module Three Assignment Solution</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Cousine" rel="stylesheet">
+	<script src="https://use.fontawesome.com/ae7ffc7b99.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="app.js"></script>
+</head>
+<body ng-app="moduleAssignment">
+	<div class="container modified">
+		<header>
+			<span>Angular Module</span>
+			<span class="github-username">Github : <a href="http://github.com/amarlearning" target="_blank">@amarlearning</a></span>
+		</header>
+
+		<div class="jumbotron extension">
+			<h2>Assignment One</h2>
+			<p>
+				Module is a part of my 
+				<strong>Angular course</strong> 
+				at <strong>Coursera</strong>
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+			</p>
+			<div class="button-link">
+				<a href="https://www.coursera.org/learn/single-page-web-apps-with-angularjs/" target="_blank">
+					<button type="button" class="course btn btn-lg btn-success">Course Link</button>
+				</a>
+			</div>
+			<p class="part">Free Course</p>
+		</div>
+		<section class="application-section" ng-controller="assignmentController">
+			<h3>Simple Application</h3>
+			<div class="textarea">
+				<div ng-bind-html="message"></div>
+				<textarea ng-model="items" placeholder="Enter the items that you usually eat in lunch..."></textarea>
+				<p><strong>Note: </strong>Empty items will not be considered as a valid case.</p>
+				<button ng-click="evaluateItems()" type="button" class="btn btn-lg btn-primary app-button">Check If Too Much</button>
+			</div>
+		</section>
+	</div>
+	<footer>
+		<div class="container modified">
+			<p class="text-footer">
+				&copy; 2017 Amar Prakash Pandey | 
+				<a href="http://amarpandey.me/" target="_blank">Website</a> | 
+				<a href="https://github.com/amarlearning/Supreme-Angular/tree/master/Week%20One/Assignment" target="_blank">
+					<i class="fa fa-github undefined"></i> Source Code
+				</a>
+			</p>
+		</div>
+	</footer>
+</body>
+</html>
