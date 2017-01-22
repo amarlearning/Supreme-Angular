@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="moduleAssignment">
+<html>
 <head>
 	<meta charset="utf-8">
 	<title>Module Three Assignment Solution</title>
@@ -19,7 +19,7 @@
 		</header>
 
 		<div class="jumbotron extension">
-			<h2>Assignment One</h2>
+			<h2>Assignment Three</h2>
 			<p>
 				Module is a part of my 
 				<strong>Angular course</strong> 
@@ -33,13 +33,40 @@
 			</div>
 			<p class="part">Free Course</p>
 		</div>
-		<section class="application-section" ng-controller="assignmentController">
+		<section class="application-section" ng-controller="assignmentController as menu">
 			<h3>Simple Application</h3>
-			<div class="textarea">
-				<div ng-bind-html="message"></div>
-				<textarea ng-model="items" placeholder="Enter the items that you usually eat in lunch..."></textarea>
-				<p><strong>Note: </strong>Empty items will not be considered as a valid case.</p>
-				<button ng-click="evaluateItems()" type="button" class="btn btn-lg btn-primary app-button">Check If Too Much</button>
+			<div class="input-box">
+				
+				<div class="alert alert-danger" role="alert" ng-if="menu.emptyMessage">
+					<strong>{{ menu.emptyMessage }}</strong>
+				</div>
+
+				<input type="text" ng-model="menu.keyword" placeholder="Enter the item description.."><br>
+				<button ng-click="menu.search();" class="btn btn-lg btn-primary app-button">Narrow It Down For Me!</button>
+				<div ng-if="menu.itemlist.length">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+								<th>Description</th>
+								<th class="extended">Don't want this one!</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in menu.itemlist">
+								<td>{{ $index + 1 }}</td>
+								<td>{{ item.short_name }}</td>
+								<td>{{ item.description }}</td>
+								<td class="extended">
+									<button class="btn btn-xs btn-danger" ng-click="menu.removeItem($index)">
+										Don't want this one!
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</section>
 	</div>
