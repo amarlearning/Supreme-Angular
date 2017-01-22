@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="shoppingListDirective">
+<head>
+	<meta charset="utf-8">
+	<title>Directive API</title>
+	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+	<script src="../../angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<h3>Directive API and '&amp;'</h3>
+	
+	<div ng-controller="shoppingListController as list">
+		<input type="text" ng-model="list.itemname" placeholder="Item Name">
+		<input type="text" ng-model="list.quantity" placeholder="Item Quantity">
+		<button ng-click="list.addItem()">Add Item</button>
+		<span>{{ list.lastRemove }}</span>
+		<shoping-list items="list.itemList" title="{{ list.title }}" bad-remove="list.removeItem"></shoping-list>
+
+	</div>
+
+</body>
+</html>
