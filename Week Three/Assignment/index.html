@@ -49,6 +49,7 @@
 							<tr>
 								<th>#</th>
 								<th>Name</th>
+								<th>Short Name</th>
 								<th>Description</th>
 								<th class="extended">Don't want this one!</th>
 							</tr>
@@ -56,6 +57,7 @@
 						<tbody>
 							<tr ng-repeat="item in menu.itemlist">
 								<td>{{ $index + 1 }}</td>
+								<td>{{ item.name }}</td>
 								<td>{{ item.short_name }}</td>
 								<td>{{ item.description }}</td>
 								<td class="extended">
