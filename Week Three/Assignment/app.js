@@ -23,6 +23,7 @@
 
 		menu.search = function() {
 			menu.itemlist = [];
+			menu.keyword = menu.keyword.toLowerCase();
 			menu.emptyMessage = "";
 			if(menu.keyword !== "") {
 				for (var i = 0; i < menu.data.length; i++) {
