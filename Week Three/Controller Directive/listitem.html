@@ -1,0 +1,11 @@
+<h4>{{ myList.title }}</h4>
+<ol>
+	<li ng-repeat="item in myList.items">
+		{{ item.quantity }} boxes of {{ item.name }}
+		<!-- <button ng-click="list.removeItem()">Remove Item</button> -->
+	</li>
+</ol>
+
+<div ng-if="myList.cookieInList()">
+	Warning! Warning! Cookie Detected!
+</div>
