@@ -14,9 +14,13 @@
 		<input type="text" ng-model="list.itemname" placeholder="Item Name">
 		<input type="text" ng-model="list.quantity" placeholder="Item Quantity">
 		<button ng-click="list.addItem()">Add Item</button>
-		<span>{{ list.lastRemove }}</span>
-		<shoping-list items="list.itemList" title="{{ list.title }}" bad-remove="list.removeItem"></shoping-list>
-
+		<span>{{ list.lastRemoved }}</span>
+		
+		<shoping-list 
+		items="list.itemList" 
+		title="{{ list.title }}" 
+		bad-remove="list.removeItem"
+		on-remove="list.removeItem(index)"></shoping-list>
 	</div>
 
 </body>

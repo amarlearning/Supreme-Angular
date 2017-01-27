@@ -11,8 +11,9 @@
 			templateUrl : 'listitem.html',
 			scope : {
 				items : '<',
-				title : "@title",
-				badRemove : "="
+				title : '@title',
+				badRemove : '=',
+				onRemove : '&'
 			},
 			controller : shoppingListDirectiveController,
 			controllerAs : 'list',
@@ -22,11 +23,21 @@
 		return ddo;
 	};
 
-
-	function shoppingListDirectiveController() {
+	shoppingListDirectiveController.$inject = ['serviceFactory'];
+	function shoppingListDirectiveController(serviceFactory) {
 		var list = this;
 
+		var serviceMethods = serviceFactory();
+		list.items = serviceMethods.getItemList();
 
+		list.checkCookie = function() {
+			for (var i = 0; i < list.items.length; i++) {
+				if(list.items[i].name.toLowerCase().indexOf('cookie') !== -1) {
+					return true;
+				}
+			}
+			return false;
+		};
 	};
 
 	shoppingListController.$inject = ['serviceFactory'];
@@ -49,7 +60,7 @@
 
 		list.removeItem = function(index) {
 			console.log("this is : ", this);
-			list.lastRemove = "Last removed item was : " + list.itemList[index].name;
+			this.lastRemoved = "Last item removed was " + this.itemList[index].name;
 			list.title = "Shopping List ( " +  list.itemList.length + " items)";
 			serviceMethod.removeItem(index);
 		};
