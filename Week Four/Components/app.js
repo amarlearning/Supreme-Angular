@@ -6,8 +6,7 @@
 	.service('serviceMethod', serviceMethod)
 	.component('shoppingList', {
 		templateUrl : 'shoppingList.html',
-		controller : shoppingListDirectiveController,
-		bindToController : true,
+		controller : shoppingListComponentController,
 		bindings : {
 			items : '<',
 			title : '@',
@@ -15,27 +14,11 @@
 		}
 	});
 
-	/*function shoppingListDirective() {
-		var ddo = {
-			templateUrl : 'shoppingList.html',
-			scope : {
-				items : '<',
-				title : '@',
-				onRemove : '&'
-			},
-			controller : shoppingListDirectiveController,
-			controllerAs : "coc",
-			bindToController : true
-		};
-
-		return ddo;
-	};*/
-
-	function shoppingListDirectiveController() {
+	function shoppingListComponentController() {
 		var coc = this;
 
-		coc.removeItem = function(indexes) {
-			coc.onRemove({index : indexes});
+		coc.remove = function(number) {
+			coc.onRemove({ index : number });
 		}
 
 		coc.cookieCatch = function() {
@@ -66,6 +49,7 @@
 		};
 
 		list.removeItem = function(index) {
+			this.lastRemoved = "Last item removed was " + this.itemlist[index].name;
 			serviceMethod.removeItem(index);
 			list.title = "Shopping List ( " + list.itemlist.length + " ) items";
 		};
