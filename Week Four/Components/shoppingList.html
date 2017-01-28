@@ -1,0 +1,10 @@
+<h3>{{ $ctrl.title }}</h3>
+<ol>
+	<li ng-repeat="item in $ctrl.items">
+		{{ item.quantity }} boxes of {{ item.name }}
+		<button ng-click="$ctrl.removeItem(index)">Remove Item</button>
+	</li>
+</ol>
+<div ng-if="$ctrl.cookieCatch()">
+	Warning! Warning! Cookie Detected!
+</div>
