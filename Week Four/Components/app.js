@@ -14,22 +14,35 @@
 		}
 	});
 
-	function shoppingListComponentController() {
-		var coc = this;
+	shoppingListComponentController.$inject = ['$scope'];
+	function shoppingListComponentController($scope) {
+		var $ctrl = this;
 
-		coc.remove = function(number) {
-			coc.onRemove({ index : number });
+		$ctrl.remove = function(number) {
+			$ctrl.onRemove({ index : number });
 		}
 
-		coc.cookieCatch = function() {
-			for (var i = 0; i < coc.items.length; i++) {
-				var name = coc.items[i].name;
+		$ctrl.cookieCatch = function() {
+			for (var i = 0; i < $ctrl.items.length; i++) {
+				var name = $ctrl.items[i].name;
 				if(name.toLowerCase().indexOf('cookie') !== -1) {
 					return true;
 				}
 			}
 			return false;
 		};
+
+		$ctrl.$onInit = function () {
+			console.log("Initialise me!");
+		};
+
+		$ctrl.$onChanges = function(changeObj) {
+			console.log(changeObj);
+		};
+
+		$scope.$watch('$ctrl.cookieCatch()', function(newValue, oldValue) {
+			
+		});
 	};
 
 	shoppingListController.$inject = ['serviceMethod'];
