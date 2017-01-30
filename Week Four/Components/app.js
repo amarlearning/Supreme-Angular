@@ -41,7 +41,8 @@
 		};
 
 		$scope.$watch('$ctrl.cookieCatch()', function(newValue, oldValue) {
-			
+			console.log("newValue : ", newValue);
+			console.log("oldValue : ", oldValue);
 		});
 	};
 
