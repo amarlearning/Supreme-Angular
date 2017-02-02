@@ -14,9 +14,11 @@
 		}
 	});
 
-	shoppingListComponentController.$inject = ['$scope'];
-	function shoppingListComponentController($scope) {
+	shoppingListComponentController.$inject = ['$element'];
+	function shoppingListComponentController($element) {
+		
 		var $ctrl = this;
+		var totalItems;
 
 		$ctrl.remove = function(number) {
 			$ctrl.onRemove({ index : number });
@@ -33,17 +35,31 @@
 		};
 
 		$ctrl.$onInit = function () {
-			console.log("Initialise me!");
+			totalItems = 0;
 		};
 
 		$ctrl.$onChanges = function(changeObj) {
 			console.log(changeObj);
 		};
 
-		$scope.$watch('$ctrl.cookieCatch()', function(newValue, oldValue) {
-			console.log("newValue : ", newValue);
-			console.log("oldValue : ", oldValue);
-		});
+		$ctrl.$doCheck = function () {
+			if ($ctrl.items.length !== totalItems) {
+				
+				console.log("# of items changed. Checking for Cookies!");
+				totalItems = $ctrl.items.length;
+				
+				if ($ctrl.cookieCatch()) {
+					console.log("Oh, NO! COOKIES!!!!!");
+					var warningElem = $element.find('div.error');
+					warningElem.slideDown(900);
+				}
+				else {
+					console.log("No cookies here. Move right along!");
+					var warningElem = $element.find('div.error');
+					warningElem.slideUp(900);
+				}
+			}
+		};
 	};
 
 	shoppingListController.$inject = ['serviceMethod'];
