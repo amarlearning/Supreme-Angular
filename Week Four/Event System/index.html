@@ -4,10 +4,7 @@
 	<meta charset="utf-8">
 	<title>Implementing Components</title>
 	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
-	<script src="../../jquery.min.js"></script>
-	<script src="../../angular.min.js"></script>
-	<script src="app.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<h3>Implementing Components</h3>
@@ -23,7 +20,27 @@
 		items="list.itemlist"
 		title="Shopping List Component App"
 		on-remove="list.removeItem(index)"></shopping-list>
-
 	</div>
+	
+	<loading-icon></loading-icon>
+
+	<!-- Libraries -->
+	<script src="../../jquery.min.js"></script>
+	<script src="../../angular.min.js"></script>
+	
+	<!-- modules -->
+	<script src="src/spinner/spinner.module.js"></script>
+	<script src="src/shoppinglist/shoppinglist.module.js"></script>
+
+	<!-- ShoppingList module components -->
+	<script src="src/shoppinglist/shoppinglist.component.js"></script>
+	<script src="src/shoppinglist/shoppinglist.controller.js"></script>	
+	<script src="src/shoppinglist/shoppinglist.factory.js"></script>
+	<script src="src/shoppinglist/weightlossfilter.service.js"></script>
+
+	<script src="src/spinner/spinner.component.js"></script>	
+
+	<!-- <script src="app.js"></script> -->
+
 </body>
 </html>

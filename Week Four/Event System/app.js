@@ -13,7 +13,32 @@
 			title : '@',
 			onRemove : '&'
 		}
+	})
+	.component('loadingIcon', {
+		templateUrl : 'loadingIcon.html',
+		controller : shoppingListLoadingIcon
 	});
+
+
+	shoppingListLoadingIcon.$inject = ['$rootScope'];
+	function shoppingListLoadingIcon($rootScope) {
+		var $ctrl = this;
+
+		var listener = $rootScope.$on('shoppingList:processing', function(event, data) {
+			console.log('Data : ', data);
+			console.log('Event : ', event);
+
+			if(data.on) {
+				$ctrl.showImage = true;
+			} else {
+				$ctrl.showImage = false;
+			}
+		});
+
+		$ctrl.$onDestroy = function() {
+			listener();
+		};
+	};
 
 	shoppingListComponentController.$inject = ['$rootScope', '$element', '$q', 'weightlossfilterservice'];
 	function shoppingListComponentController($rootScope, $element, $q, weightlossfilterservice) {
@@ -38,12 +63,12 @@
 				.then(function(result) {
 					// Remove Cookie Warning
 					var warningElem = $element.find('div.error');
-					warningElem.slideDown(900);
+					warningElem.slideUp(900);
 				})
 				.catch(function(result) {
 					// Show cookie Warning
 					var warningElem = $element.find('div.error');
-					warningElem.slideUp(900);
+					warningElem.slideDown(900);
 				})
 				.finally(function() {
 					$rootScope.$broadcast('shoppingList:processing', {on : false});
@@ -83,13 +108,25 @@
 		var service = this;
 
 		service.checkItem = function(itemname) {
-			if(itemname.toLowerCase().indexOf('cookie') !== -1) {
-				return true;
-			} else {
-				return false;
-			}
+			var result = {
+				message : ""
+			};
+
+			var deferred = $q.defer();
+
+			$timeout(function() {
+				if(itemname.toLowerCase().indexOf('cookie') === -1) {
+					deferred.resolve(result);
+				} else {
+					result.message = "No, more cookies!";
+					deferred.reject(result);
+				}
+			}, 4000);
+
+			return deferred.promise;
+				
 		};
-	}
+	};
 
 	function serviceMethod() {
 		var service = this;

@@ -1,0 +1,8 @@
+.error {
+	display: none;
+}
+.loadingIcon {
+	position: relative;
+	left: 50%;
+	top: -60%;
+}
