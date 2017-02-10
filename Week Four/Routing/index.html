@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="RoutingApp">
+<head>
+	<meta charset="utf-8">
+	<title>Routing Application</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h2>UI State Routing</h2>
+
+	<div class="main">
+		<a ui-sref="tab1" ui-sref-active="active">Tab 1</a>
+		<a ui-sref="tab2" ui-sref-active="active">Tab 2</a>
+		<a ui-sref="error" ui-sref-active="active">Error</a>
+	</div>
+
+	<ui-view></ui-view>
+
+	<script src="../../angular.min.js"></script>
+	<script src="lib/angular-ui-router.min.js"></script>
+	<script src="src/app.js"></script>
+</body>
+</html>
