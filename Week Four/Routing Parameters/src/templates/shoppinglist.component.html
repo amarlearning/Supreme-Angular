@@ -1,5 +1,5 @@
 <ul>
-	<li ng-repeat="item in $ctrl.items">
+	<li ng-repeat="item in $ctrl.items" ui-sref="item({itemId : $index})">
 		{{ item.quantity }} boxes of {{ item.name }}
 	</li>
 </ul>

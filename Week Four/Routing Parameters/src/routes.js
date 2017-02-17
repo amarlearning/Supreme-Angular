@@ -27,10 +27,13 @@
 		.state('item', {
 			url : '/item/{itemId}',
 			templateUrl : 'src/templates/item.template.html',
-			controller : 'shoppingListController as list',
+			controller : 'ItemDetailController as itemdetail',
 			resolve  : {
-				items : ['shoppingListService', function(shoppingListService) {
-					return shoppingListService.getItems();
+				item : ['$stateParams', 'shoppingListService', function($stateParams, shoppingListService) {
+					return shoppingListService.getItems()
+					.then(function(items) {
+						return items[$stateParams.itemId];
+					});
 				}] 
 			}
 		});
