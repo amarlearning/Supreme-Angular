@@ -4,10 +4,14 @@
 	angular.module('RoutingController')
 	.controller('shoppingListController', shoppingListController);
 
-	shoppingListController.$inject = ['serviceMethod'];
+	shoppingListController.$inject = ['items'];
 
-	function shoppingListController(serviceMethod) {
+	function shoppingListController(items) {
 		var list = this;
+
+		list.items = items;
+
+		/*
 
 		list.$onInit = function() {
 
@@ -16,6 +20,8 @@
 				list.items = result
 			});
 		};
+
+		*/
 
 	};
 

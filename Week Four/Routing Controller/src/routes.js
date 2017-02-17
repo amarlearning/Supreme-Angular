@@ -12,7 +12,12 @@
 		$stateProvider.state('mainlist', {
 			url : '/mainlist',
 			templateUrl : 'src/templates/shoppinglist.template.html',
-			controller : 'shoppingListController as list'
+			controller : 'shoppingListController as list',
+			resolve : {
+				items : ['serviceMethod', function(serviceMethod) {
+					return serviceMethod.getItems();
+				}]
+			}
 		})
 		.state('home', {
 			url : '/',
