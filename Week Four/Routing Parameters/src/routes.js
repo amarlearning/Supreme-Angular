@@ -24,18 +24,10 @@
 				}] 
 			}
 		})
-		.state('item', {
+		.state('mainlist.item', {
 			url : '/item/{itemId}',
 			templateUrl : 'src/templates/item.template.html',
-			controller : 'ItemDetailController as itemdetail',
-			resolve  : {
-				item : ['$stateParams', 'shoppingListService', function($stateParams, shoppingListService) {
-					return shoppingListService.getItems()
-					.then(function(items) {
-						return items[$stateParams.itemId];
-					});
-				}] 
-			}
+			controller : 'ItemDetailController as itemdetail'
 		});
 	};
 	
