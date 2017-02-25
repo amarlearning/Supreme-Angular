@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="MenuApp">
+<head>
+	<meta charset="utf-8">
+	<title>Module Four Assignment Solution</title>
+	<link rel="stylesheet" type="text/css" href="css/master.css">
+</head>
+<body>
+	<h2>Welcome to our Restaurant</h2>
+	<ui-view></ui-view>
+
+	<!-- Dependencies Script -->
+	<script src="../../angular.min.js"></script>
+	<script src="lib/angular-ui-router.min.js"></script>
+
+	<!-- Restaurant Module Script -->
+	<script src="src/restaurant/menuapp.module.js"></script>
+	<script src="src/restaurant/data.module.js"></script>
+	<script src="src/routes.js"></script>
+
+	<!-- Restaurant Module Artifacts -->
+	<script src="src/restaurant/restaurant.controller.js"></script>
+	<script src="src/restaurant/menudata.service.js"></script>
+
+</body>
+</html>
