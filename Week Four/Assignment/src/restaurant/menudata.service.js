@@ -24,6 +24,20 @@
 
 			return defered.promise;
 		}
+
+
+		service.getItemsForCategory = function(itemId) {
+
+			var defered = $q.defer();
+
+			$timeout(function(itemId){
+				var response = $http({
+					method : 'GET',
+					url : ('https://davids-restaurant.herokuapp.com/menu_items.json?category=' +  itemId)
+				});
+			});
+		};
+
 	};
 
 })();

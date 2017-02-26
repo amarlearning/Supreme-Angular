@@ -25,9 +25,15 @@
 					return MenuDataService.getAllCategories()
 				}]
 			}
-
-			
 		})
+		.state('item', {
+			url : '/items/{itemId}',
+			templateUrl : 'src/templates/item.template.html',
+			controller : 'ItemDetailController as itemdetail',
+			resolve : {
+				itemDetail : [''];
+			}
+		});
 	};
 
 })();
