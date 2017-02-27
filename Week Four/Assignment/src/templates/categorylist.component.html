@@ -1,0 +1,10 @@
+<ul>
+	<li ng-repeat="item in $ctrl.items">
+		<ol>
+			<li>Id : {{ item.id }}</li>
+			<li>Name : {{ item.name }}</li>
+			<li>Short Name : {{ item.short_name }}</li>
+			<li>Link : <a href="{{ item.url }}">this</a></li>
+		</ol>
+	</li>
+</ul>
