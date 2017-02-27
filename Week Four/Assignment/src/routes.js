@@ -31,7 +31,9 @@
 			templateUrl : 'src/templates/item.template.html',
 			controller : 'ItemDetailController as itemdetail',
 			resolve : {
-				itemDetail : [''];
+				itemDetail : ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService) {
+					return MenuDataService.getItemsForCategory($stateParams.itemId);
+				}]
 			}
 		});
 	};

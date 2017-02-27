@@ -30,12 +30,19 @@
 
 			var defered = $q.defer();
 
-			$timeout(function(itemId){
+			$timeout(function(){
+				
 				var response = $http({
 					method : 'GET',
 					url : ('https://davids-restaurant.herokuapp.com/menu_items.json?category=' +  itemId)
 				});
-			});
+
+				defered.resolve(response);
+
+			}, 1000);
+
+			return defered.promise;
+
 		};
 
 	};
