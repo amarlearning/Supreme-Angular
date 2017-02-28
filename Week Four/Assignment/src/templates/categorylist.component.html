@@ -1,10 +1,18 @@
-<ul>
-	<li ng-repeat="item in $ctrl.items">
-		<ol>
-			<li>Id : {{ item.id }}</li>
-			<li>Name : {{ item.name }}</li>
-			<li>Short Name : {{ item.short_name }}</li>
-			<li>Link : <a href="{{ item.url }}">this</a></li>
-		</ol>
-	</li>
-</ul>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Short Name</th>
+			<th>Name</th>
+			<th>Menu Link</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in $ctrl.items">
+			<td>{{ $index + 1 }}</td>
+			<td>{{ item.short_name }}</td>
+			<td>{{ item.name }}</td>
+			<td><a ui-sref="item({ itemId : item.short_name })">Link</a></td>
+		</tr>
+	</tbody>
+</table>

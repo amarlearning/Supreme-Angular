@@ -20,7 +20,7 @@
 
 				defered.resolve(response);
 
-			}, 1000);
+			}, 10);
 
 			return defered.promise;
 		}
@@ -39,7 +39,7 @@
 
 				defered.resolve(response);
 
-			}, 1000);
+			}, 10);
 
 			return defered.promise;
 
