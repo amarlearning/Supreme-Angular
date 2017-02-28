@@ -29,12 +29,16 @@
 							$ctrl.showSpinner = false;
 						});
 			canceller.push(cancel);
+
+
 			$ctrl.$onDestroy = function() {
 				canceller.foreach(function(item){
 					item();
 				});
 			}	
 		};
+
+		
 	};
 
 })();
