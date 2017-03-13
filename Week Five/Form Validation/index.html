@@ -13,24 +13,54 @@
 		
 		<form name="RegForm" novalidate>
 			
-		<input type="text" name="name" placeholder="username" 
-			ng-model="reg.user.username"
-			required 
-			minlength="4" 
-			ng-maxlength="10">
-		
-		{{ reg.user.username }}
 
-		<span ng-if="(RegForm.name.$error.required || RegForm.name.$error.minlength) && RegForm.name.$touched">
-			Username must be atlest 4 character long
-		</span>
+			<input type="text" name="name" placeholder="username" 
+				ng-model="reg.user.username"
+				required 
+				minlength="4" 
+				ng-maxlength="10">
+			{{ reg.user.username }}
+			<span ng-if="(RegForm.name.$error.required || RegForm.name.$error.minlength) && RegForm.name.$touched">
+				Username must be atlest 4 character long
+			</span>
+			<span ng-if="RegForm.name.$error.maxlength && RegForm.name.$touched">
+				Username should be less than 10 characters
+			</span>
+			<br>
 
-		<span ng-if="RegForm.name.$error.maxlength && RegForm.name.$touched">
-			Username should be less than 10 characters
-		</span>
 
+			<input type="email" name="email" ng-model="reg.user.email" 
+				placeholder="Email Id" 
+				required>
+			{{ reg.user.email }}
+			<span ng-if="RegForm.email.$invalid && RegForm.email.$touched">
+					Email should be like hi@amarpandey.me
+			</span>
+			<br>
+
+			<input type="text" name="number" ng-model="reg.user.number"
+				placeholder="###-###-####"
+				pattern="(\d{3})-(\d{3})-(\d{4})">
+			{{ reg.user.number }}
+			<span ng-if="RegForm.number.$invalid && RegForm.number.$touched">
+				Number should be in format ###-###-####
+			</span>
+			<br>
+
+			<input type="submit" 
+				ng-disabled="RegForm.$invalid"
+				ng-click="reg.submit()">
+			<br>
+
+			<div>Form valid? {{ RegForm.$valid }} </div>
 
 		</form>
+
+		<div ng-if="reg.FormSubmitted">
+			Username : {{ reg.user.username }} <br>
+			Email : {{ reg.user.email }} <br>
+			Phone : {{ reg.user.number }}
+		</div>
 
 
 	</div>
