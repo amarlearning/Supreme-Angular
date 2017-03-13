@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="Validation">
+<head>
+	<meta charset="utf-8">
+	<title>Form Validation</title>
+	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/master.css">
+</head>
+<body>
+	<h3>Form Validation</h3>
+
+	<div ng-controller="FormRegController as reg">
+		
+		<form name="RegForm" novalidate>
+			
+		<input type="text" name="name" placeholder="username" 
+			ng-model="reg.user.username"
+			required 
+			minlength="4" 
+			ng-maxlength="10">
+		
+		{{ reg.user.username }}
+
+		<span ng-if="(RegForm.name.$error.required || RegForm.name.$error.minlength) && RegForm.name.$touched">
+			Username must be atlest 4 character long
+		</span>
+
+		<span ng-if="RegForm.name.$error.maxlength && RegForm.name.$touched">
+			Username should be less than 10 characters
+		</span>
+
+
+		</form>
+
+
+	</div>
+
+	<!-- Dependencies -->
+	<script src="../../angular.min.js"></script>
+	
+	<!-- Module scripts -->
+	<script src="src/form.module.js"></script>
+
+	<!-- Module artifacts -->
+	<script src="src/FormRegController.controller.js"></script>
+</body>
+</html>
