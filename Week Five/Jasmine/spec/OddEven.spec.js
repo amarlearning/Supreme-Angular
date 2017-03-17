@@ -17,7 +17,7 @@ describe('OddEven', function () {
 		expect(result).toEqual(8);
 	});
 
-	it('should be equal to odd number 3', function() {
+	xit('should be equal to odd number 3', function() {
 		var result = OddEvenRandomGenerator("odd", OddEvenRandom3);
 		expect(result).toEqual(3);
 	});
